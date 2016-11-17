@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--配置handler处理器
+    由于使用了BeanNameUrlHandlerMapping处理器映射器,name配置为url
+    id不识别/符号-->
+
+    <bean name="/itemList.action" class="com.whx.nju.springmvc.first.ItemController1"></bean>
+
+    <!--配置处理器映射器 HandlerMapping-->
+    <!--根据bean的name进行查找Handler 将action的url配置在bean的namezhong
+    springmvc 框架根据HandlerMapping接口判断是否是处理器映射器-->
+    <bean class="org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping"/>
+
+    <!--配置处理器适配器 HandlerAdapter-->
+    <!--springmvc框架根据HandlerAdapter接口判断是否是处理器适配器-->
+    <bean class="org.springframework.web.servlet.mvc.SimpleControllerHandlerAdapter"/>
+    <!--配置视图解析器 viewResolver
+    要求将jstl包加到classpath中-->
+
+    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+
+    </bean>
+
+</beans>
